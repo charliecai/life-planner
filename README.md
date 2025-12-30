@@ -14,7 +14,11 @@ A personal strategic planning and execution system based on the Life Wheel metho
 ## Installation
 
 ```bash
-/plugin install github:charliecai/life-planner
+# 1. Add the marketplace
+/plugin marketplace add charliecai/life-planner
+
+# 2. Install the plugin
+/plugin install life-planner@charliecai-life-planner
 ```
 
 ## Usage
@@ -97,14 +101,17 @@ The plugin helps you generate the following Markdown documents:
 ```
 life-planner/
 ├── .claude-plugin/
-│   ├── plugin.json          # Plugin manifest
-│   └── marketplace.json     # Marketplace config
-├── skills/
+│   └── marketplace.json              # Marketplace config
+├── plugins/
 │   └── life-planner/
-│       ├── SKILL.md                    # Main skill file
-│       ├── ANNUAL-PLAN-TEMPLATE.md     # Annual plan template
-│       ├── MONTHLY-PLAN-TEMPLATE.md    # Monthly plan template
-│       └── MONTHLY-REVIEW-TEMPLATE.md  # Monthly review template
+│       ├── .claude-plugin/
+│       │   └── plugin.json           # Plugin manifest
+│       └── skills/
+│           └── life-planner/
+│               ├── SKILL.md                    # Main skill file
+│               ├── ANNUAL-PLAN-TEMPLATE.md     # Annual plan template
+│               ├── MONTHLY-PLAN-TEMPLATE.md    # Monthly plan template
+│               └── MONTHLY-REVIEW-TEMPLATE.md  # Monthly review template
 └── README.md
 ```
 

@@ -14,7 +14,11 @@
 ## 安装
 
 ```bash
-/plugin install github:charliecai/life-planner
+# 1. 添加市场
+/plugin marketplace add charliecai/life-planner
+
+# 2. 安装插件
+/plugin install life-planner@charliecai-life-planner
 ```
 
 ## 使用方法
@@ -97,14 +101,17 @@ Phase 10: 月度回顾 ─┘
 ```
 life-planner/
 ├── .claude-plugin/
-│   ├── plugin.json          # 插件清单
-│   └── marketplace.json     # 市场配置
-├── skills/
+│   └── marketplace.json              # 市场配置
+├── plugins/
 │   └── life-planner/
-│       ├── SKILL.md                    # 主技能文件
-│       ├── ANNUAL-PLAN-TEMPLATE.md     # 年度计划模板
-│       ├── MONTHLY-PLAN-TEMPLATE.md    # 月度计划模板
-│       └── MONTHLY-REVIEW-TEMPLATE.md  # 月度回顾模板
+│       ├── .claude-plugin/
+│       │   └── plugin.json           # 插件清单
+│       └── skills/
+│           └── life-planner/
+│               ├── SKILL.md                    # 主技能文件
+│               ├── ANNUAL-PLAN-TEMPLATE.md     # 年度计划模板
+│               ├── MONTHLY-PLAN-TEMPLATE.md    # 月度计划模板
+│               └── MONTHLY-REVIEW-TEMPLATE.md  # 月度回顾模板
 └── README.md
 ```
 

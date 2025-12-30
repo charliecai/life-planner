@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "life-planner",
-      "source": ".",
+      "source": "./plugins/life-planner",
       "description": "Personal life planning and review system with annual planning, monthly planning, and monthly review workflows based on Life Wheel methodology.",
       "version": "1.0.0",
       "author": {
