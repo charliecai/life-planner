@@ -1,4 +1,4 @@
-# Life Plan Plugin
+# Life Planner Plugin
 
 [English](README.md) | [中文](README_CN.md)
 
@@ -14,7 +14,7 @@
 ## 安装
 
 ```bash
-/plugin install github:charliecai/life-plan
+/plugin install github:charliecai/life-planner
 ```
 
 ## 使用方法
@@ -95,12 +95,12 @@ Phase 10: 月度回顾 ─┘
 ## 项目结构
 
 ```
-life-plan/
+life-planner/
 ├── .claude-plugin/
 │   ├── plugin.json          # 插件清单
 │   └── marketplace.json     # 市场配置
 ├── skills/
-│   └── life-plan/
+│   └── life-planner/
 │       ├── SKILL.md                    # 主技能文件
 │       ├── ANNUAL-PLAN-TEMPLATE.md     # 年度计划模板
 │       ├── MONTHLY-PLAN-TEMPLATE.md    # 月度计划模板
@@ -114,16 +114,16 @@ life-plan/
 
 ```bash
 # 克隆项目
-git clone https://github.com/charliecai/life-plan.git
+git clone https://github.com/charliecai/life-planner.git
 
 # 以插件模式加载
-claude --plugin-dir ./life-plan
+claude --plugin-dir ./life-planner
 ```
 
 ### 验证插件
 
 ```bash
-/plugin validate ./life-plan
+/plugin validate ./life-planner
 ```
 
 ## 许可证

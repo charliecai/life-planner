@@ -1,4 +1,4 @@
-# Life Plan Plugin
+# Life Planner Plugin
 
 [English](README.md) | [中文](README_CN.md)
 
@@ -14,7 +14,7 @@ A personal strategic planning and execution system based on the Life Wheel metho
 ## Installation
 
 ```bash
-/plugin install github:charliecai/life-plan
+/plugin install github:charliecai/life-planner
 ```
 
 ## Usage
@@ -95,12 +95,12 @@ The plugin helps you generate the following Markdown documents:
 ## Project Structure
 
 ```
-life-plan/
+life-planner/
 ├── .claude-plugin/
 │   ├── plugin.json          # Plugin manifest
 │   └── marketplace.json     # Marketplace config
 ├── skills/
-│   └── life-plan/
+│   └── life-planner/
 │       ├── SKILL.md                    # Main skill file
 │       ├── ANNUAL-PLAN-TEMPLATE.md     # Annual plan template
 │       ├── MONTHLY-PLAN-TEMPLATE.md    # Monthly plan template
@@ -114,16 +114,16 @@ life-plan/
 
 ```bash
 # Clone the repo
-git clone https://github.com/charliecai/life-plan.git
+git clone https://github.com/charliecai/life-planner.git
 
 # Load as plugin
-claude --plugin-dir ./life-plan
+claude --plugin-dir ./life-planner
 ```
 
 ### Validate Plugin
 
 ```bash
-/plugin validate ./life-plan
+/plugin validate ./life-planner
 ```
 
 ## License

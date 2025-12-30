@@ -1,5 +1,5 @@
 {
-  "name": "life-plan-marketplace",
+  "name": "life-planner-marketplace",
   "owner": {
     "name": "charliecai"
   },
@@ -9,12 +9,12 @@
   },
   "plugins": [
     {
-      "name": "life-plan",
+      "name": "life-planner",
       "source": ".",
       "description": "Personal life planning and review system with annual planning, monthly planning, and monthly review workflows based on Life Wheel methodology.",
       "version": "1.0.0",
       "author": {
-        "name": "charliec"
+        "name": "charliecai"
       },
       "license": "MIT",
       "keywords": [

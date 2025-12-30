@@ -1,5 +1,5 @@
 ---
-name: life-plan
+name: life-planner
 description: |
   Personal life planning and review system based on Life Wheel methodology.
   Use when: annual planning, annual review, monthly planning, monthly review,
@@ -8,7 +8,7 @@ description: |
   "生命之轮", "人生规划", "目标设定".
 ---
 
-# Life Plan - Personal Strategic Planning System
+# Life Planner - Personal Strategic Planning System
 
 A comprehensive personal planning system based on Life Wheel methodology, Anti-Fantasy OKR, and 12-Week Year rhythm.
 
