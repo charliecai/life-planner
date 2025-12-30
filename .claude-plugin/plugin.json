@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Personal life planning and review system based on Life Wheel methodology. Includes annual planning, monthly planning, and monthly review workflows.",
   "author": {
-    "name": "charliec"
+    "name": "charliecai"
   },
-  "repository": "https://github.com/charliec/life-plan-plugin",
+  "repository": "https://github.com/charliecai/life-plan",
   "license": "MIT",
   "keywords": [
     "life-planning",

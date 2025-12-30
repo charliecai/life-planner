@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Generated plans (users should create their own repo for plans)
+plans/
