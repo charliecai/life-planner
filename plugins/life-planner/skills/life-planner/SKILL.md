@@ -88,16 +88,53 @@ Then apply these rules:
 
 ## Workflow Overview
 
+### For Annual Review (Standalone)
+
+**CRITICAL: Check for existing annual plan first**
+
+Before starting the annual review:
+1. Check if annual plan exists: `plans/{review_year}/annual-plan-{review_year}.md`
+2. Choose the appropriate workflow based on what you find:
+
+**Workflow A: Annual plan exists**
+- Read the annual plan document
+- Extract goals, OKRs, and key commitments from the plan
+- Guide review by referencing specific goals and battlefields
+- Ask about achievement of each Objective and Key Result
+- Compare actual outcomes vs. planned outcomes
+- Identify gaps between plan and reality
+- Progress through all 12 sections of Annual Review Template
+- Reference the plan throughout to maintain context
+
+**Workflow B: No annual plan exists**
+- Use Life Wheel structure for systematic review
+- Go through 8 dimensions ONE BY ONE:
+  1. **Health**: Ask specific questions about physical health, energy levels, sleep, exercise
+  2. **Career/Studies**: Ask about work achievements, challenges, learning, growth
+  3. **Wealth/Financial Security**: Ask about income, savings, investments, financial decisions
+  4. **Family**: Ask about family relationships, time spent, significant events
+  5. **Intimate Relationships**: Ask about relationship quality, changes, milestones
+  6. **Social/Friends**: Ask about friendships, social life, community
+  7. **Personal Growth**: Ask about skills learned, books read, cognitive updates
+  8. **Leisure/Recovery**: Ask about hobbies, rest, fun activities, balance
+- For each dimension, ask 2-3 specific questions
+- Wait for user response before moving to next dimension
+- After collecting all 8 dimensions, synthesize patterns
+- Progress through remaining sections of Annual Review Template
+- Focus on pattern recognition rather than goal achievement
+
+**DO NOT ask general questions like "What were your plans?" or "How did you do overall?"**
+Always use structured, dimension-specific questioning.
+
 ### For Annual Planning (Phase 0-8)
 1. Reality Check - constraints and role confirmation
 2. Life Wheel Scan - identify risks and weaknesses
-3. Annual Review - patterns, not chronicles
-4. Strategic Focus - theme word and battlefield selection
-5. Anti-Fantasy OKR - verifiable objectives and key results
-6. Execution System - minimum actions, environment design, failure pre-mortem
-7. Recovery & Input Budget - protected non-output activities
-8. Annual Battle Map - comprehensive reference document
-9. 12-Week Rhythm - quarterly milestones
+3. Strategic Focus - theme word and battlefield selection
+4. Anti-Fantasy OKR - verifiable objectives and key results
+5. Execution System - minimum actions, environment design, failure pre-mortem
+6. Recovery & Input Budget - protected non-output activities
+7. Annual Battle Map - comprehensive reference document
+8. 12-Week Rhythm - quarterly milestones
 
 ### For Monthly Planning (Phase 9)
 - Align with annual theme → quarterly theme → KR milestones
@@ -162,7 +199,7 @@ For detailed templates, see:
 
 When user wants to:
 - **Start annual planning**: Begin from Phase 0 (Reality Check)
-- **Do annual review only**: Focus on Phase 2 (Annual Review)
+- **Do annual review**: Follow "For Annual Review (Standalone)" workflow - check for plan first, then use Workflow A or B
 - **Create monthly plan**: Go directly to Phase 9 (Monthly Planning)
 - **Do monthly review**: Go directly to Phase 10 (Monthly Review)
 - **Quick Life Wheel scan**: Execute Phase 1 only
