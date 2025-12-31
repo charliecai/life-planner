@@ -4,8 +4,10 @@ description: |
   Personal life planning and review system based on Life Wheel methodology.
   Use when: annual planning, annual review, monthly planning, monthly review,
   goal setting, life balance assessment, OKR creation, or when user mentions
-  keywords like "年度计划", "年度复盘", "月度计划", "月度复盘", "月度回顾",
-  "生命之轮", "人生规划", "目标设定".
+  keywords like "年度计划", "制定年度计划", "年度规划", "做年度计划",
+  "年度复盘", "年度回顾", "年度总结", "月度计划", "制定月度计划",
+  "月度规划", "月度复盘", "月度回顾", "月度总结", "生命之轮",
+  "人生规划", "目标设定", "OKR", "战略规划", "personal planning".
 ---
 
 # Life Planner - Personal Strategic Planning System
