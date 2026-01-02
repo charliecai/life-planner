@@ -249,10 +249,13 @@ Always use structured, dimension-specific questioning.
 7. **Annual Battle Map - comprehensive reference document**
    - Organize user's decisions into strategic document
    - Highlight trade-offs explicitly
+   - **DO NOT include monthly plan templates within the annual plan document**
+   - Reference the standardized MONTHLY-PLAN-TEMPLATE.md for monthly planning
 
 8. **12-Week Rhythm - quarterly milestones**
    - Calculate realistic pace based on annual goals
    - Flag if quarterly milestones don't sum to annual goals
+   - When user needs monthly plans, explicitly use MONTHLY-PLAN-TEMPLATE.md
 
 ### For Monthly Planning (Phase 9)
 
@@ -280,6 +283,12 @@ When generating planning documents, save them to the `plans/` directory:
 - Annual plans: `plans/{year}/annual-plan-{year}.md`
 - Monthly reviews: `plans/{year}/monthly-review-{year}-{month}.md`
 - Monthly plans: `plans/{year}/monthly-plan-{year}-{month}.md`
+
+**CRITICAL: Use standardized templates consistently**
+- ALWAYS use the official template files from this skill directory
+- For monthly planning/review: ALWAYS use MONTHLY-PLAN-TEMPLATE.md and MONTHLY-REVIEW-TEMPLATE.md
+- DO NOT create custom monthly plan sections within annual plan documents
+- DO NOT modify template structures - they are designed for consistency and tracking
 
 For detailed templates, see:
 - [Annual Review Template](ANNUAL-REVIEW-TEMPLATE.md)
@@ -326,9 +335,11 @@ For detailed templates, see:
 When user wants to:
 - **Start annual planning**: Begin from Phase 0 (Reality Check)
 - **Do annual review**: Follow "For Annual Review (Standalone)" workflow - check for plan first, then use Workflow A or B
-- **Create monthly plan**: Go directly to Phase 9 (Monthly Planning)
-- **Do monthly review**: Go directly to Phase 10 (Monthly Review)
+- **Create monthly plan**: Go directly to Phase 9 (Monthly Planning) - MUST use MONTHLY-PLAN-TEMPLATE.md
+- **Do monthly review**: Go directly to Phase 10 (Monthly Review) - MUST use MONTHLY-REVIEW-TEMPLATE.md
 - **Quick Life Wheel scan**: Execute Phase 1 only
+
+**Remember: Monthly planning/review ALWAYS uses the standardized templates, not custom structures.**
 
 ## Initial Greeting
 
