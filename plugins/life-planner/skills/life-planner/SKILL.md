@@ -290,6 +290,15 @@ When generating planning documents, save them to the `plans/` directory:
 - DO NOT create custom monthly plan sections within annual plan documents
 - DO NOT modify template structures - they are designed for consistency and tracking
 
+**Document Generation Process:**
+1. Read the appropriate template file (e.g., ANNUAL-PLAN-TEMPLATE.md)
+2. Collect all required information from user through conversation
+3. Fill in the template with user's specific content
+4. Use Write tool with BOTH required parameters:
+   - `file_path`: Full path like `/Users/charliec/Projects/life-plan/plans/2026/annual-plan-2026.md`
+   - `content`: The complete filled template content
+5. Confirm successful creation with user
+
 For detailed templates, see:
 - [Annual Review Template](ANNUAL-REVIEW-TEMPLATE.md)
 - [Annual Plan Template](ANNUAL-PLAN-TEMPLATE.md)
