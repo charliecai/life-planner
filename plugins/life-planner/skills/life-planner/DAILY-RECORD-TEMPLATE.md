@@ -25,38 +25,66 @@ Example: `2026/202601/daily-records-2026-01.md`
 
 ---
 
-## Record Summary
+## Record Summary (Life Wheel 8 Dimensions)
 
-| Category | Count | Description |
-|----------|-------|-------------|
-| Exercise & Fitness | {count} | Running, gym, swimming, etc. |
-| Social Meetings | {count} | Gatherings, dates, meetings, etc. |
-| Expenses | {count} | Shopping, purchases, etc. |
-| Free Records | {count} | Other records |
+| Dimension | Count | Description |
+|-----------|-------|-------------|
+| Health | {count} | Exercise, sleep, medical, diet |
+| Career/Studies | {count} | Work, projects, learning |
+| Wealth | {count} | Income, expenses, investments |
+| Family | {count} | Family time and activities |
+| Intimate Relationships | {count} | Partner activities |
+| Social/Friends | {count} | Social gatherings, friendships |
+| Personal Growth | {count} | Reading, skills, reflection |
+| Leisure/Fun | {count} | Entertainment, relaxation |
 
 ---
 
 ## Detailed Records
 
-### Exercise & Fitness
+### Health
 
 | Date | Content | Notes |
 |------|---------|-------|
 | {date} | {content} | {note} |
 
-### Social Meetings
+### Career/Studies
 
 | Date | Content | Notes |
 |------|---------|-------|
 | {date} | {content} | {note} |
 
-### Expenses
+### Wealth
 
 | Date | Content | Amount | Notes |
 |------|---------|--------|-------|
 | {date} | {content} | {amount} | {note} |
 
-### Free Records
+### Family
+
+| Date | Content | Notes |
+|------|---------|-------|
+| {date} | {content} | {note} |
+
+### Intimate Relationships
+
+| Date | Content | Notes |
+|------|---------|-------|
+| {date} | {content} | {note} |
+
+### Social/Friends
+
+| Date | Content | Notes |
+|------|---------|-------|
+| {date} | {content} | {note} |
+
+### Personal Growth
+
+| Date | Content | Notes |
+|------|---------|-------|
+| {date} | {content} | {note} |
+
+### Leisure/Fun
 
 | Date | Content | Notes |
 |------|---------|-------|
@@ -67,20 +95,28 @@ Example: `2026/202601/daily-records-2026-01.md`
 *This file is automatically maintained by the daily record feature*
 ```
 
-## Category Keywords
+## Dimension Keywords (Life Wheel)
 
-Use these keywords to automatically classify records:
+Use these keywords to automatically classify records based on Life Wheel dimensions:
 
-| Category | Keywords |
-|----------|----------|
-| Exercise & Fitness | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, basketball, football, soccer, badminton, tennis, table tennis, hiking, climbing, walking, weightlifting, squat, push-up, sit-up, pilates, stretching, cardio, aerobic, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧 |
-| Social Meetings | meeting, date, party, gathering, dinner, hangout, reunion, visit, meetup, social, 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊 |
-| Expenses | bought, spent, paid, purchase, cost, payment, order, shopping, expense, 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销 |
-| Free Records | (default, when no other keywords match) |
+| Dimension | Keywords |
+|-----------|----------|
+| Health | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, walking, weightlifting, squat, push-up, pilates, stretching, cardio, sleep, doctor, hospital, medicine, diet, checkup, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 健走, 举重, 深蹲, 俯卧撑, 普拉提, 拉伸, 有氧, 无氧, 睡眠, 看病, 医院, 吃药, 饮食, 体检, 早睡, 熬夜 |
+| Career/Studies | work, project, meeting, presentation, deadline, study, course, exam, interview, promotion, office, client, report, 工作, 项目, 会议, 汇报, 截止, 学习, 课程, 考试, 面试, 晋升, 加班, 办公, 客户, 述职, 培训 |
+| Wealth | bought, spent, paid, invest, salary, bonus, save, budget, income, expense, purchase, shopping, cost, payment, 买了, 花了, 消费, 投资, 工资, 奖金, 存钱, 预算, 收入, 支出, 理财, 购买, 购物, 开销, 报销 |
+| Family | family, parents, mom, dad, mother, father, sibling, brother, sister, grandparents, home, 家人, 父母, 爸, 妈, 爸妈, 兄弟, 姐妹, 爷爷, 奶奶, 外公, 外婆, 回家, 家庭, 孩子, 儿子, 女儿 |
+| Intimate Relationships | partner, spouse, wife, husband, boyfriend, girlfriend, date, anniversary, romance, 伴侣, 老婆, 老公, 男友, 女友, 约会, 纪念日, 恋爱, 结婚, 爱人, 对象 |
+| Social/Friends | friend, party, gathering, hangout, reunion, meetup, social, dinner party, 朋友, 聚会, 聚餐, 饭局, 派对, 叙旧, 团建, 联谊, 见面, 拜访, 串门 |
+| Personal Growth | book, read, learn, course, skill, practice, reflect, meditation, journal, 看书, 阅读, 学习, 技能, 练习, 反思, 思考, 成长, 冥想, 写日记, 复盘 |
+| Leisure/Fun | movie, game, travel, vacation, hobby, relax, music, concert, entertainment, hiking, 电影, 游戏, 旅行, 度假, 爱好, 放松, 音乐, 演唱会, 休息, 娱乐, 徒步, 爬山, 露营 |
 
-## Amount Extraction Patterns
+**Priority**: Health > Career/Studies > Wealth > Family > Intimate Relationships > Social/Friends > Personal Growth > Leisure/Fun
 
-For expense records, extract amounts using these patterns:
+**Default behavior**: If no keyword matches, prompt user to select a dimension manually.
+
+## Amount Extraction Patterns (Wealth dimension only)
+
+For Wealth dimension records, extract amounts using these patterns:
 - `spent 100` / `$100` / `100 dollars` → $100
 - `花了100元` / `花费100` → ¥100
 - `100元` / `100块` → ¥100
@@ -91,5 +127,6 @@ For expense records, extract amounts using these patterns:
 1. **New file creation** - Use `cat >` to create the initial file
 2. **Appending records** - Use `cat >>` or direct table row insertion
 3. **Update summary counts** - After adding records, update the summary table
-4. **Maintain chronological order** - Sort records by date within each category
+4. **Maintain chronological order** - Sort records by date within each dimension
 5. **Date format** - Use YYYY-MM-DD format for all dates
+6. **Dimension alignment** - Each record maps to exactly one Life Wheel dimension

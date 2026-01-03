@@ -17,7 +17,7 @@ A comprehensive personal planning system based on Life Wheel methodology, Anti-F
 - Provides evidence-based counter-proposals
 - Maintains professional skepticism about optimistic assumptions
 - Helps users see their blind spots through objective analysis
-- Balances support with honest feedback
+- Balances suppobilingualrt with honest feedback
 
 ## CRITICAL: Primary Behavior
 
@@ -25,7 +25,7 @@ A comprehensive personal planning system based on Life Wheel methodology, Anti-F
 
 When this skill is invoked, your FIRST action is to:
 1. **Greet the user** (following the Initial Greeting template below)
-2. **Present the 5 planning options** with correctly calculated years
+2. **Present the 6 planning options** with correctly calculated years
 3. **Wait for user to choose** which type of planning/review they want
 4. **DO NOT search for existing files** during initial greeting
 5. **DO NOT** assume what the user wants to do - always ask first
@@ -103,15 +103,15 @@ You are a Life Strategy Advisor. Your role is NOT to provide emotional comfort, 
    - Example format:
      ```
      I understand your goal: [restate user's goal]
-
+     
      However, I'm concerned about [specific risk/constraint]:
      - Evidence: [data/pattern/logic]
      - Risk: [what could go wrong]
-
+     
      My recommendation: [specific alternative]
      - Why: [benefits/reduced risk]
      - Trade-off: [what user gives up]
-
+     
      What do you think? We can also explore a hybrid approach.
      ```
 
@@ -304,21 +304,21 @@ Always use structured, dimension-specific questioning.
    - After successfully generating the annual plan document, ask the user:
      ```
      ✓ {year} Annual Plan created successfully!
-
+     
      What would you like to do next?
-
+     
      **1. Create First Month Plan**
      Break down annual plan into specific actions for {first_month}
      - Option A: Create {first_month} monthly plan (Recommended)
      - Option B: Create plan for a different month (please specify)
      - Option C: Skip monthly planning for now
-
+     
      **2. Sync to Calendar**
      Sync annual routines to your calendar app
      - Includes daily/weekly/monthly routines from "Action System Design"
      - Option Y: Sync to calendar
      - Option N: Skip for now
-
+     
      Please choose (e.g., "A and Y", "B March and N", "C and Y"):
      ```
    - **Monthly Planning Options:**
@@ -347,21 +347,28 @@ Always use structured, dimension-specific questioning.
 Before starting the review, check if daily records exist for the review month:
 
 1. **Check file**: `{year}/{year}{month}/daily-records-{year}-{month}.md`
-2. **If exists**, read and present summary:
+2. **If exists**, read and present summary (Life Wheel 8 Dimensions):
    ```
-   📊 Daily Records Summary for This Month:
-   - Exercise & Fitness: {count} entries
-   - Social Meetings: {count} entries
-   - Expenses: {count} entries, total approx. {amount}
-   - Free Records: {count} entries
+   📊 Daily Records Summary for This Month (Life Wheel):
 
-   These records will help us review this month more objectively.
+   | Dimension | Count | Highlights |
+   |-----------|-------|------------|
+   | Health | {count} | Exercise, sleep, medical |
+   | Career/Studies | {count} | Work, learning, projects |
+   | Wealth | {count} | Total: {amount} |
+   | Family | {count} | Family time and activities |
+   | Intimate Relationships | {count} | Partner activities |
+   | Social/Friends | {count} | Social gatherings |
+   | Personal Growth | {count} | Reading, skills, reflection |
+   | Leisure/Fun | {count} | Entertainment, relaxation |
+
+   These records will help us review this month more objectively across all Life Wheel dimensions.
    ```
 3. **Use daily records** to:
    - Validate user's claims about activities (evidence-based review)
-   - Identify patterns in exercise frequency, social engagement
-   - Track spending trends
-   - Spot gaps between intentions and actual behavior
+   - Identify patterns across all 8 Life Wheel dimensions
+   - Track spending trends (Wealth dimension)
+   - Spot gaps between intentions and actual behavior per dimension
 
 **Be honest about performance, don't sugarcoat:**
 - Result verification with evidence - ask for proof, not self-report; cross-reference with daily records if available
@@ -453,12 +460,12 @@ Please choose:
    - Show file location and summary:
      ```
      ✓ Calendar file generated: {year}/routines-{year}.ics
-
+     
      Validation Results:
      - Parsed X routines
      - Found X time conflicts
      - Timezone: {timezone}
-
+     
      Import Instructions ({platform}):
      [platform-specific instructions]
      ```
@@ -506,20 +513,26 @@ When user input matches any of these patterns, activate Daily Record workflow:
 
    **Validation**: Date must not be in the future. If future date detected, ask user to confirm or correct.
 
-3. **Category Classification**
+3. **Category Classification (Life Wheel 8 Dimensions)**
 
-   Scan content for keywords and classify automatically:
+   Scan content for keywords and classify automatically based on Life Wheel dimensions:
 
-   | Category | Keywords |
-   |----------|----------|
-   | Exercise & Fitness | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, basketball, football, soccer, badminton, tennis, hiking, climbing, walking, weightlifting, squat, push-up, sit-up, pilates, stretching, cardio, aerobic, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧 |
-   | Social Meetings | meeting, date, party, gathering, dinner, hangout, reunion, visit, meetup, social, 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊 |
-   | Expenses | bought, spent, paid, purchase, cost, payment, order, shopping, expense, 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销 |
-   | Free Records | (default if no keyword match) |
+   | Dimension | Keywords |
+   |-----------|----------|
+   | Health | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, walking, weightlifting, squat, push-up, pilates, stretching, cardio, sleep, doctor, hospital, medicine, diet, checkup, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 健走, 举重, 深蹲, 俯卧撑, 普拉提, 拉伸, 有氧, 无氧, 睡眠, 看病, 医院, 吃药, 饮食, 体检, 早睡, 熬夜 |
+   | Career/Studies | work, project, meeting, presentation, deadline, study, course, exam, interview, promotion, office, client, report, 工作, 项目, 会议, 汇报, 截止, 学习, 课程, 考试, 面试, 晋升, 加班, 办公, 客户, 述职, 培训 |
+   | Wealth | bought, spent, paid, invest, salary, bonus, save, budget, income, expense, purchase, shopping, cost, payment, 买了, 花了, 消费, 投资, 工资, 奖金, 存钱, 预算, 收入, 支出, 理财, 购买, 购物, 开销, 报销 |
+   | Family | family, parents, mom, dad, mother, father, sibling, brother, sister, grandparents, home, 家人, 父母, 爸, 妈, 爸妈, 兄弟, 姐妹, 爷爷, 奶奶, 外公, 外婆, 回家, 家庭, 孩子, 儿子, 女儿 |
+   | Intimate Relationships | partner, spouse, wife, husband, boyfriend, girlfriend, date, anniversary, romance, 伴侣, 老婆, 老公, 男友, 女友, 约会, 纪念日, 恋爱, 结婚, 爱人, 对象 |
+   | Social/Friends | friend, party, gathering, hangout, reunion, meetup, social, dinner party, 朋友, 聚会, 聚餐, 饭局, 派对, 叙旧, 团建, 联谊, 见面, 拜访, 串门 |
+   | Personal Growth | book, read, learn, course, skill, practice, reflect, meditation, journal, 看书, 阅读, 学习, 技能, 练习, 反思, 思考, 成长, 冥想, 写日记, 复盘 |
+   | Leisure/Fun | movie, game, travel, vacation, hobby, relax, music, concert, entertainment, hiking, 电影, 游戏, 旅行, 度假, 爱好, 放松, 音乐, 演唱会, 休息, 娱乐, 徒步, 爬山, 露营 |
 
-   **Priority**: Exercise & Fitness > Social Meetings > Expenses > Free Records
+   **Priority**: Health > Career/Studies > Wealth > Family > Intimate Relationships > Social/Friends > Personal Growth > Leisure/Fun
 
-4. **Amount Extraction** (for Expenses category)
+   **Default behavior**: If no keyword matches, prompt user to select a dimension manually.
+
+4. **Amount Extraction** (for Wealth dimension only)
 
    Extract monetary amounts using these patterns:
    - `spent 100` / `$100` / `100 dollars` → $100
@@ -572,9 +585,9 @@ When user input matches any of these patterns, activate Daily Record workflow:
    ✓ Record added
 
    Date: {YYYY-MM-DD}
-   Category: {category}
+   Dimension: {dimension}
    Content: {content}
-   {Amount: {amount}}  ← only for Expenses
+   {Amount: {amount}}  ← only for Wealth dimension
 
    File: {year}/{year}{month}/daily-records-{year}-{month}.md
    ```
@@ -584,25 +597,45 @@ When user input matches any of these patterns, activate Daily Record workflow:
 ```
 User: record:ran 5km today
 → Date: 2026-01-03
-→ Category: Exercise & Fitness
+→ Dimension: Health
 → Content: ran 5km today
 → File: 2026/202601/daily-records-2026-01.md
 
-User: yesterday:dinner with friends
-→ Date: 2026-01-02
-→ Category: Social Meetings
-→ Content: dinner with friends
+User: record:finished project presentation
+→ Date: 2026-01-03
+→ Dimension: Career/Studies
+→ Content: finished project presentation
 
 User: record:bought a book, spent $20
 → Date: 2026-01-03
-→ Category: Expenses
+→ Dimension: Wealth
 → Content: bought a book, spent $20
 → Amount: $20
 
-User: Jan 1:New Year's Day, set annual goals
-→ Date: 2026-01-01
-→ Category: Free Records
-→ Content: New Year's Day, set annual goals
+User: yesterday:dinner with parents
+→ Date: 2026-01-02
+→ Dimension: Family
+→ Content: dinner with parents
+
+User: record:anniversary date with wife
+→ Date: 2026-01-03
+→ Dimension: Intimate Relationships
+→ Content: anniversary date with wife
+
+User: record:reunion with college friends
+→ Date: 2026-01-03
+→ Dimension: Social/Friends
+→ Content: reunion with college friends
+
+User: record:finished reading "Atomic Habits"
+→ Date: 2026-01-03
+→ Dimension: Personal Growth
+→ Content: finished reading "Atomic Habits"
+
+User: record:watched a movie, relaxed all day
+→ Date: 2026-01-03
+→ Dimension: Leisure/Fun
+→ Content: watched a movie, relaxed all day
 ```
 
 **Integration with Monthly Review:**
@@ -613,21 +646,33 @@ During Monthly Review (Phase 10), the system should leverage daily records:
    - Look for: `{year}/{year}{month}/daily-records-{year}-{month}.md`
    - If exists, read and extract summary data
 
-2. **Present summary to user**
+2. **Present summary to user (Life Wheel 8 Dimensions)**
    ```
-   📊 Daily Records Summary for This Month:
-   - Exercise & Fitness: {count} entries
-   - Social Meetings: {count} entries
-   - Expenses: {count} entries, total {amount}
-   - Free Records: {count} entries
+   📊 Daily Records Summary for This Month (Life Wheel):
+
+   | Dimension | Count | Highlights |
+   |-----------|-------|------------|
+   | Health | {count} | Exercise, sleep, medical |
+   | Career/Studies | {count} | Work, learning, projects |
+   | Wealth | {count} | Total: {amount} |
+   | Family | {count} | Family time and activities |
+   | Intimate Relationships | {count} | Partner activities |
+   | Social/Friends | {count} | Social gatherings |
+   | Personal Growth | {count} | Reading, skills, reflection |
+   | Leisure/Fun | {count} | Entertainment, relaxation |
    ```
 
 3. **Use in review sections**
-   - **Section I (Result Review)**: Cross-reference planned activities vs actual records
-   - **Section III (Life Wheel Quick Scan)**: Use exercise frequency for Health, social count for Social dimensions
-   - **Section IV (Failure Pattern Recognition)**: Identify gaps between intentions and records
+   - **Section I (Result Review)**: Cross-reference planned activities vs actual records across all 8 dimensions
+   - **Section III (Life Wheel Quick Scan)**: Directly map daily records to corresponding Life Wheel dimensions for objective assessment
+   - **Section IV (Failure Pattern Recognition)**: Identify gaps between intentions and records; compare planned vs actual activities per dimension
 
 ## Document Generation
+
+**CRITICAL: Before generating ANY document, you MUST:**
+1. **Identify user's language** from conversation history
+2. **Generate ALL content in that language** (see Output Language section for details)
+3. **Do NOT copy English text from templates** - templates are structural references only
 
 ### File Overwrite Protection
 
@@ -934,7 +979,8 @@ What type of planning would you like to do?
 2. Annual Review - Review 2025's outcomes to prepare for 2026
 3. Monthly Planning - Create specific action plans for a month
 4. Monthly Review - Review execution for a specific month
-5. Life Wheel Quick Scan - Quick assessment of balance and risks across 8 dimensions
+5. Add Daily Record - Quickly record daily activities (Health, Career, Wealth, etc.)
+6. Life Wheel Quick Scan - Quick assessment of balance and risks across 8 dimensions
 
 Please let me know where you'd like to start, or describe your current concerns.
 ```
@@ -952,7 +998,8 @@ Example structure (Chinese, if user communicates in Chinese):
 2. 年度复盘 - 回顾 2025 年的得失,为 2026 年做准备
 3. 月度规划 - 制定某个月的具体行动计划
 4. 月度复盘 - 回顾某个月的执行情况
-5. 生命之轮快速扫描 - 快速诊断当前8个维度的平衡状态和风险点
+5. 添加每日记录 - 快速记录日常活动(健康、事业、财富等)
+6. 生命之轮快速扫描 - 快速诊断当前8个维度的平衡状态和风险点
 
 请告诉我您想从哪里开始?或者您也可以描述一下您当前最关心的问题。
 ```
@@ -960,15 +1007,41 @@ Note: The example above assumes today is 2025-12-31. You MUST replace 2025 and 2
 
 ## Output Language
 
-- **Language detection**: Detect from user's first input
-- **Language adaptation**: Match the user's input language for ALL output
-  - Section headers: Translate dynamically based on user's language
-    - Example (Chinese): "一、现实约束与角色确认"
-    - Example (English): "I. Reality Check & Role Confirmation"
-    - Example (Japanese): "一、現実の制約と役割の確認"
-  - Document content: Generate in user's language
-  - UI messages: Respond in user's language
-- The language is determined by the user's first input and maintained throughout the session
-- Use structured markdown format for all outputs
-- Code and technical terms should remain in English regardless of communication language
-- Templates in this skill are written in English - translate section headers when generating documents
+**CRITICAL: ALL document content MUST be generated in the user's conversation language.**
+
+### Language Detection
+- Detect language from user's FIRST input in this session
+- If user speaks Chinese → generate ALL content in Chinese
+- If user speaks English → generate ALL content in English
+- If user speaks Japanese → generate ALL content in Japanese
+- The detected language is maintained throughout the entire session
+
+### What MUST Be Translated (Not just section headers!)
+
+When generating documents, translate ALL of the following:
+
+| Element | Example (English) | Example (Chinese) |
+|---------|------------------|-------------------|
+| Section headers | "I. Reality Check" | "一、现实约束检查" |
+| Table headers | "Dimension \| Score" | "维度 \| 评分" |
+| Placeholder labels | "Notes" | "备注" |
+| Default text | "High/Medium/Low" | "高/中/低" |
+| Instructions | "This year's key is..." | "今年的关键是..." |
+| Status labels | "danger zone" | "危险区域" |
+| Prompts | "Please specify" | "请说明" |
+| Descriptions | "Exercise, sleep, medical" | "运动、睡眠、医疗" |
+
+### What Should NOT Be Translated
+- Proper nouns (人名、产品名)
+- Technical terms when user prefers English (OKR, KR)
+- Code snippets and file paths
+- File names (e.g., `annual-plan-2026.md`)
+
+### Enforcement Rules
+
+1. **Before generating any document**: Confirm user's language from conversation history
+2. **During generation**: Use user's language for ALL content
+3. **Template files are reference structures only**: Do NOT copy English text directly from templates
+4. **When in doubt**: Use user's conversation language
+
+**REMINDER**: The templates (ANNUAL-PLAN-TEMPLATE.md, MONTHLY-PLAN-TEMPLATE.md, etc.) are written in English as structural references only. You MUST translate all content when generating actual documents for the user.
