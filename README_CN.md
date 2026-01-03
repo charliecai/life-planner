@@ -73,31 +73,94 @@
 
 ### 工作流程
 
-```
-Phase 0: 现实约束与角色确认
-    ↓
-Phase 1-2: 生命之轮扫描 + 年度复盘
-    ↓
-Phase 3-4: 战略取舍 + OKR设定
-    ↓
-Phase 5-6: 行动系统 + 恢复配额
-    ↓
-Phase 7-8: 年度地图 + 12周节奏
-    ↓
-Phase 9: 月度计划 ←──┐
-    ↓               │
-Phase 10: 月度回顾 ─┘
+```mermaid
+flowchart TD
+    %% 定义样式
+    classDef process fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef storage fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef terminator fill:#e0e0e0,stroke:#333,stroke-width:2px;
+    classDef critical fill:#ffccbc,stroke:#d84315,stroke-width:2px,stroke-dasharray: 5 5;
+
+    %% =======================
+    %% Phase 1: 年度计划初始化
+    %% =======================
+    Start((开始: 新建年度计划)):::terminator
+    CheckLastYear{检查: 上一年复盘?}:::decision
+    CreateLastReview[动作: 补录上一年复盘]:::process
+    GenAnnualPlan[系统: 生成年度计划]:::process
+
+    Start --> CheckLastYear
+    CheckLastYear -- 无 (且确认做) --> GenAnnualPlan
+    CheckLastYear -- 无 (去补录) --> CreateLastReview --> GenAnnualPlan
+    CheckLastYear -- 有 --> GenAnnualPlan
+
+    %% =======================
+    %% Phase 2: 后续动作分发 (并行/独立)
+    %% =======================
+    PlanReady((年度计划完成)):::terminator
+    GenAnnualPlan --> PlanReady
+
+    UserChoice{用户后续操作}:::decision
+    PlanReady --> UserChoice
+
+    %% 分支 A: 拆分月度计划 (核心路径)
+    ActionSplit[动作: 拆分/创建<br>首月月度计划]:::critical
+
+    %% 分支 B: 同步日历 (可选路径)
+    ActionCalendar[动作: Routine同步日历]:::process
+    CheckMonthExists_Cal{检查: 是否已有<br>月度计划?}:::decision
+    PromptForMonth_Cal[提示: 建议创建月度计划]:::process
+
+    %% 连线逻辑
+    UserChoice -- 拆分月度 --> ActionSplit
+    UserChoice -- 同步日历 --> ActionCalendar
+
+    ActionCalendar --> CheckMonthExists_Cal
+    CheckMonthExists_Cal -- 无 --> PromptForMonth_Cal
+    PromptForMonth_Cal --> ActionSplit
+    CheckMonthExists_Cal -- 有 (结束) --> DoneCal((日历同步完成)):::terminator
+
+    %% =======================
+    %% Phase 3: 日常记录 (带校验)
+    %% =======================
+    subgraph DailyLoop [日常记录闭环]
+        direction TB
+        UserRecord[用户: 触发日常记录]:::process
+        CheckMonthExists_Rec{检查: 当月是否有<br>月度计划?}:::decision
+        PromptForMonth_Rec[提示: 请先创建本月计划]:::process
+        SaveLog[(系统: 存入记录文件)]:::storage
+    end
+
+    %% 记录时的校验逻辑
+    UserRecord --> CheckMonthExists_Rec
+    CheckMonthExists_Rec -- 有 --> SaveLog
+    CheckMonthExists_Rec -- 无 --> PromptForMonth_Rec
+
+    %% 关键连接：如果记录时发现没计划，跳转去创建
+    PromptForMonth_Rec -.-> ActionSplit
+    ActionSplit -.->|创建完成后| SaveLog
+
+    %% =======================
+    %% Phase 4 & 5: 复盘 (简略)
+    %% =======================
+    SaveLog -.-> MonthReview[月度复盘]
+    MonthReview --> NextMonthPlan[创建下月计划]
+    NextMonthPlan -.-> YearReview[年度复盘]
 ```
 
 ## 生成的文档
 
-插件会帮你生成以下 Markdown 文档：
+插件会帮你生成以下文档：
 
-| 文档类型 | 文件名格式 |
-|---------|-----------|
-| 年度计划 | `annual-plan-{year}.md` |
-| 月度计划 | `monthly-plan-{year}-{month}.md` |
-| 月度回顾 | `monthly-review-{year}-{month}.md` |
+| 文档类型 | 文件名格式 | 位置 |
+|---------|-----------|------|
+| 年度计划 | `annual-plan-{year}.md` | `{year}/` |
+| 年度复盘 | `annual-review-{year}.md` | `{year}/` |
+| 日历文件 | `routines-{year}.ics` | `{year}/` |
+| 月度计划 | `monthly-plan-{year}-{month}.md` | `{year}/{year}{month}/` |
+| 月度复盘 | `monthly-review-{year}-{month}.md` | `{year}/{year}{month}/` |
+| 每日记录 | `daily-records-{year}-{month}.md` | `{year}/{year}{month}/` |
 
 ## 项目结构
 

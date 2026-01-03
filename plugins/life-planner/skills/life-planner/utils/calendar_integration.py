@@ -61,7 +61,7 @@ def check_time_conflict(events: List[RoutineEvent]) -> List[str]:
             start2_min = start2_time.hour * 60 + start2_time.minute
 
             if start2_min < end1_min:
-                conflicts.append(f"冲突: {e1.name} ({e1.start_time}) 和 {e2.name} ({e2.start_time})")
+                conflicts.append(f"Conflict: {e1.name} ({e1.start_time}) and {e2.name} ({e2.start_time})")
 
     return conflicts
 
@@ -124,9 +124,9 @@ def validate_routines(events: List[RoutineEvent]) -> Dict[str, List[str]]:
     for event in events:
         start_time, _ = parse_time_slot(event.start_time)
         if not start_time:
-            issues["invalid_times"].append(f"{event.name}: 无效时间格式 '{event.start_time}'")
+            issues["invalid_times"].append(f"{event.name}: Invalid time format '{event.start_time}'")
 
         if not event.name or not event.duration:
-            issues["missing_data"].append(f"{event.name or 'Unknown'}: 缺少必要信息")
+            issues["missing_data"].append(f"{event.name or 'Unknown'}: Missing required information")
 
     return {k: v for k, v in issues.items() if v}

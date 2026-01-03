@@ -1,10 +1,11 @@
 ---
 name: life-planner
 description: |
-  制定年度计划、制定月度计划、记录日常活动、生命之轮评估、年度计划、年度规划、年度复盘、月度计划、月度复盘、每日记录。
-  Use for: 制定年度计划, 做年度计划, 年度回顾, 年度总结, 制定月度计划, 月度规划,
-  月度回顾, 月度总结, 人生规划, 目标设定, OKR, 战略规划, 添加记录, 记录日常活动。
-  Triggers: annual plan, annual review, monthly plan, monthly review, life wheel, daily record.
+  Create annual plans, monthly plans, daily records, and Life Wheel assessments.
+  Use for: annual planning, annual review, monthly planning, monthly review,
+  life planning, goal setting, OKR, strategic planning, daily records.
+  Triggers: annual plan, annual review, monthly plan, monthly review, life wheel, daily record,
+  年度计划, 年度复盘, 月度计划, 月度复盘, 添加记录, 每日记录.
 ---
 
 # Life Planner - Personal Strategic Planning System
@@ -134,26 +135,26 @@ You MUST extract the year from today's date first:
 
 Then apply these rules:
 
-**For Annual Review (年度复盘)**:
+**For Annual Review**:
 - Default behavior: Review the most recently completed year
   - If current date is Jan 1 - Feb 28: Default to previous year (e.g., in 2026-01-15, review 2025)
   - If current date is Mar 1 - Dec 31: Default to current year (e.g., in 2026-06-15, review 2026)
 - **Always confirm with user**: "I suggest reviewing {year}. Is this correct, or would you like to review a different year?"
 - Allow user to override the default
 
-**For Annual Planning (年度计划)**:
+**For Annual Planning**:
 - Default behavior: Plan for the upcoming year
   - If current date is Jan 1 - Feb 28: Default to current year (e.g., in 2026-01-15, plan for 2026)
   - If current date is Mar 1 - Dec 31: Default to next year (e.g., in 2026-06-15, plan for 2027)
 - **Always confirm with user**: "I suggest planning for {year}. Is this correct?"
 - Allow user to override the default
 
-**For Monthly Review (月度复盘)**:
+**For Monthly Review**:
 - Reviews the CURRENT month or the most recent completed month
   - Example: If today is 2025-12-31, review December 2025 (2025-12)
   - Example: If today is 2026-01-05, could review December 2025 (just ended) or January 2026 (in progress)
 
-**For Monthly Planning (月度计划)**:
+**For Monthly Planning**:
 - Plans for the NEXT month or the remainder of current month
   - Example: If today is 2025-12-20, plan for January 2026 (2026-01)
   - Example: If today is 2025-12-02, could plan for remainder of December 2025 or January 2026
@@ -276,7 +277,7 @@ Always use structured, dimension-specific questioning.
    - Push for specific, measurable outcomes
    - Challenge vague goals with "How will we measure this?"
    - Use evidence from user's past performance
-   - Example: "Last year you aimed for similar健身目标 but achieved 40%. What's different this time? Should we adjust the target to 80% of last year's goal for higher confidence?"
+   - Example: "Last year you aimed for similar fitness goals but achieved 40%. What's different this time? Should we adjust the target to 80% of last year's goal for higher confidence?"
 
 5. **Execution System - minimum actions, environment design, failure pre-mortem**
    - Play devil's advocate: "What if you get sick/travel/busy?"
@@ -302,29 +303,29 @@ Always use structured, dimension-specific questioning.
 9. **Post-Annual-Planning: Next Steps Prompt**
    - After successfully generating the annual plan document, ask the user:
      ```
-     ✓ {year}年度计划已创建成功！
+     ✓ {year} Annual Plan created successfully!
 
-     接下来您可以选择：
+     What would you like to do next?
 
-     **1. 拆分首月月度计划**
-     将年度计划拆分为首月({first_month}月)的具体行动计划
-     - Option A: 创建{first_month}月月度计划（推荐）
-     - Option B: 创建其他月份的月度计划（请指定月份）
-     - Option C: 暂不创建月度计划
+     **1. Create First Month Plan**
+     Break down annual plan into specific actions for {first_month}
+     - Option A: Create {first_month} monthly plan (Recommended)
+     - Option B: Create plan for a different month (please specify)
+     - Option C: Skip monthly planning for now
 
-     **2. 同步日历**
-     将年度Routine同步到您的日历应用
-     - 包含"行动系统设计"中的日常/每周/每月Routine
-     - Option Y: 同步到日历
-     - Option N: 暂不同步
+     **2. Sync to Calendar**
+     Sync annual routines to your calendar app
+     - Includes daily/weekly/monthly routines from "Action System Design"
+     - Option Y: Sync to calendar
+     - Option N: Skip for now
 
-     请选择 (例如 "A和Y", "B 3月 和N", "C和Y"):
+     Please choose (e.g., "A and Y", "B March and N", "C and Y"):
      ```
-   - **Monthly Planning Options (拆分月度):**
+   - **Monthly Planning Options:**
      - If user chooses option A: Start monthly planning for first month (typically January for new year plans)
      - If user chooses option B: Ask which specific month they want to plan, then proceed with monthly planning for that month
-     - If user chooses option C: Skip monthly planning, remind user "建议尽快创建首月计划，以便开始记录日常活动"
-   - **Calendar Integration Options (同步日历):**
+     - If user chooses option C: Skip monthly planning, remind user "Consider creating the first month's plan soon to start tracking daily activities"
+   - **Calendar Integration Options:**
      - If user chooses option Y: Check if monthly plan exists first (see Calendar Integration Phase 11), then sync
      - If user chooses option N: Skip calendar integration
    - End the annual planning session after completing user's choices
@@ -348,13 +349,13 @@ Before starting the review, check if daily records exist for the review month:
 1. **Check file**: `{year}/{year}{month}/daily-records-{year}-{month}.md`
 2. **If exists**, read and present summary:
    ```
-   📊 本月每日记录摘要:
-   - 运动健身: {count} 次
-   - 社交见面: {count} 次
-   - 消费支出: {count} 笔, 总计约 {amount} 元
-   - 自由记录: {count} 条
+   📊 Daily Records Summary for This Month:
+   - Exercise & Fitness: {count} entries
+   - Social Meetings: {count} entries
+   - Expenses: {count} entries, total approx. {amount}
+   - Free Records: {count} entries
 
-   这些记录将帮助我们更客观地回顾本月情况。
+   These records will help us review this month more objectively.
    ```
 3. **Use daily records** to:
    - Validate user's claims about activities (evidence-based review)
@@ -374,19 +375,19 @@ Before starting the review, check if daily records exist for the review month:
 After completing the monthly review document generation, prompt user for next steps:
 
 ```
-✓ {year}年{month}月 月度复盘已完成！
+✓ {year}/{month} Monthly Review completed!
 
-您接下来想做什么？
+What would you like to do next?
 
-1. **创建下月计划** - 基于本月复盘结果，制定{next_month}月计划
-2. **结束本次会话** - 稍后再创建下月计划
-{3. **进行年度复盘** - 开始{year}年度复盘 (仅12月显示)}
+1. **Create Next Month Plan** - Based on this month's review, create plan for {next_month}
+2. **End Session** - Create next month's plan later
+{3. **Start Annual Review** - Begin {year} annual review (only shown in December)}
 
-请选择:
+Please choose:
 ```
 
 - If user chooses 1: Start Monthly Planning workflow for next month
-- If user chooses 2: End session with reminder "记得在月初创建下月计划哦！"
+- If user chooses 2: End session with reminder "Remember to create next month's plan at the beginning of the month!"
 - If user chooses 3 (only shown if reviewing December): Start Annual Review workflow for that year
 
 **Month Calculation**:
@@ -399,7 +400,7 @@ After completing the monthly review document generation, prompt user for next st
 
 1. **Parse Routines**
    - Read the generated annual plan file: `{year}/annual-plan-{year}.md`
-   - Locate the "五(附)、日常Routine时间表" section
+   - Locate the "V (Appendix). Daily Routine Schedule" section
    - Use `utils/calendar_integration.py` to parse routine tables
    - Extract daily/weekly/monthly routines into RoutineEvent objects
 
@@ -412,23 +413,23 @@ After completing the monthly review document generation, prompt user for next st
    3. **If NOT exists**:
       - Inform user:
         ```
-        ⚠️ 发现您还没有创建{year}年首月的月度计划。
-        建议先创建月度计划，将年度Routine落实到具体的月度行动中。
+        ⚠️ No monthly plan found for the first month of {year}.
+        It's recommended to create a monthly plan first to translate annual routines into concrete monthly actions.
         ```
-      - Ask: "是否先创建首月月度计划? (Y: 创建月度计划 / N: 继续同步日历)"
+      - Ask: "Would you like to create the first month's plan first? (Y: Create monthly plan / N: Continue with calendar sync)"
       - If user chooses Y: Switch to Monthly Planning workflow for first month, then return to calendar sync
       - If user chooses N: Proceed with calendar sync
    4. **If exists**: Proceed with calendar sync
 
 3. **Validate**
    - Run `validate_routines()` to check:
-     - **Time conflicts** (同一天内的时间冲突): Check if daily routines overlap
-     - **Invalid time formats** (时间格式错误): Verify HH:MM or HH:MM-HH:MM format
-     - **Missing required fields** (缺少必填字段): Ensure name and duration are present
-     - **Timezone consistency** (时区一致性): All events use same timezone
+     - **Time conflicts**: Check if daily routines overlap
+     - **Invalid time formats**: Verify HH:MM or HH:MM-HH:MM format
+     - **Missing required fields**: Ensure name and duration are present
+     - **Timezone consistency**: All events use same timezone
    - If issues found:
      - Report all issues to user with details
-     - Ask: "发现以上问题,是否继续生成日历文件? (y/n)"
+     - Ask: "Issues found above. Continue generating calendar file? (y/n)"
      - If user confirms, proceed; otherwise abort
 
 4. **Generate .ics File**
@@ -445,20 +446,20 @@ After completing the monthly review document generation, prompt user for next st
 5. **Provide Import Instructions**
    - Detect user's operating system
    - Generate platform-specific import guide:
-     - **macOS**: "打开 Finder,找到文件并双击,系统日历应用会自动打开,点击'添加'导入"
-     - **Windows**: "在文件资源管理器中找到 .ics 文件,右键选择'导入到 Outlook'"
-     - **Linux**: "使用 Thunderbird 或 GNOME Calendar 导入 .ics 文件"
-     - **Universal**: "访问 Google Calendar 网页版,点击设置 > 导入和导出 > 选择文件导入"
+     - **macOS**: "Open Finder, locate the file and double-click. Calendar app will open automatically, click 'Add' to import"
+     - **Windows**: "In File Explorer, find the .ics file, right-click and select 'Import to Outlook'"
+     - **Linux**: "Use Thunderbird or GNOME Calendar to import the .ics file"
+     - **Universal**: "Go to Google Calendar web, click Settings > Import and Export > Select file to import"
    - Show file location and summary:
      ```
-     ✓ 日历文件已生成: {year}/routines-{year}.ics
+     ✓ Calendar file generated: {year}/routines-{year}.ics
 
-     检查结果:
-     - 共解析 X 个 routine
-     - 发现 X 个时间冲突
-     - 时区: {timezone}
+     Validation Results:
+     - Parsed X routines
+     - Found X time conflicts
+     - Timezone: {timezone}
 
-     导入说明 ({platform}):
+     Import Instructions ({platform}):
      [platform-specific instructions]
      ```
 
@@ -468,13 +469,14 @@ After completing the monthly review document generation, prompt user for next st
 - Timezone is auto-detected and consistently applied to all events
 - Validation runs before file generation to catch issues early
 
-### Daily Record (每日记录)
+### Daily Record
 
 A quick-capture feature for recording daily activities, expenses, social events, and other life moments.
 
 **Trigger Detection**
 
 When user input matches any of these patterns, activate Daily Record workflow:
+- "add record:xxx" or "record:xxx"
 - "添加记录:xxx" or "添加记录：xxx"
 - "记录:xxx" or "记录：xxx"
 - "每日记录"
@@ -491,13 +493,16 @@ When user input matches any of these patterns, activate Daily Record workflow:
 
    | Input Pattern | Resolution | Example |
    |--------------|------------|---------|
-   | (none) | Today's date | `记录:跑步5公里` → today |
-   | 昨天 | Yesterday | `昨天:跑步5公里` → yesterday |
-   | 前天 | Day before yesterday | `前天:跑步5公里` → 2 days ago |
-   | X月Y日 | Current year, month X, day Y | `1月15日:xxx` → Jan 15 this year |
-   | XXXX年X月Y日 | Specified full date | `2025年12月31日:xxx` → Dec 31, 2025 |
-   | 上周X | Last week's corresponding weekday | `上周三:xxx` → last Wednesday |
-   | 本周X | This week's corresponding weekday | `本周一:xxx` → this Monday |
+   | (none) | Today's date | `record:ran 5km` → today |
+   | yesterday | Yesterday | `yesterday:ran 5km` → yesterday |
+   | day before yesterday | Day before yesterday | 2 days ago |
+   | Jan 15 / January 15 | Current year, Jan 15 | `Jan 15:xxx` → Jan 15 this year |
+   | 2025-12-31 / Dec 31, 2025 | Specified full date | Dec 31, 2025 |
+   | last Monday/Tuesday/etc | Last week's corresponding weekday | `last Wednesday:xxx` → last Wednesday |
+   | this Monday/Tuesday/etc | This week's corresponding weekday | `this Monday:xxx` → this Monday |
+   | 昨天 | Yesterday (Chinese) | |
+   | 前天 | Day before yesterday (Chinese) | |
+   | X月Y日 | Current year, month X, day Y (Chinese) | |
 
    **Validation**: Date must not be in the future. If future date detected, ask user to confirm or correct.
 
@@ -507,19 +512,20 @@ When user input matches any of these patterns, activate Daily Record workflow:
 
    | Category | Keywords |
    |----------|----------|
-   | 运动健身 | 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧, gym, workout |
-   | 社交见面 | 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊, meeting, party |
-   | 消费支出 | 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销, spent, bought, paid |
-   | 自由记录 | (default if no keyword match) |
+   | Exercise & Fitness | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, basketball, football, soccer, badminton, tennis, hiking, climbing, walking, weightlifting, squat, push-up, sit-up, pilates, stretching, cardio, aerobic, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧 |
+   | Social Meetings | meeting, date, party, gathering, dinner, hangout, reunion, visit, meetup, social, 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊 |
+   | Expenses | bought, spent, paid, purchase, cost, payment, order, shopping, expense, 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销 |
+   | Free Records | (default if no keyword match) |
 
-   **Priority**: 运动健身 > 社交见面 > 消费支出 > 自由记录
+   **Priority**: Exercise & Fitness > Social Meetings > Expenses > Free Records
 
-4. **Amount Extraction** (for 消费支出 category)
+4. **Amount Extraction** (for Expenses category)
 
    Extract monetary amounts using these patterns:
-   - `花了100元` / `花费100` → 100元
-   - `100元` / `100块` → 100元
-   - `￥100` / `¥100` → 100元
+   - `spent 100` / `$100` / `100 dollars` → $100
+   - `花了100元` / `花费100` → ¥100
+   - `100元` / `100块` → ¥100
+   - `￥100` / `¥100` → ¥100
    - If no amount found, leave as "-"
 
 5. **Pre-Check: Monthly Plan Existence**
@@ -531,10 +537,10 @@ When user input matches any of these patterns, activate Daily Record workflow:
    3. **If NOT exists**:
       - Inform user:
         ```
-        ⚠️ 当月({year}年{month}月)尚无月度计划。
-        建议先创建月度计划再添加记录，以便更好地追踪执行情况。
+        ⚠️ No monthly plan found for {year}/{month}.
+        It's recommended to create a monthly plan before adding records for better execution tracking.
         ```
-      - Ask: "是否继续添加记录? (Y: 继续添加 / N: 先创建月度计划)"
+      - Ask: "Continue adding record? (Y: Continue / N: Create monthly plan first)"
       - If user chooses N: Switch to Monthly Planning workflow for that month
       - If user chooses Y: Proceed with adding record (with warning noted)
    4. **If exists**: Proceed with adding record
@@ -552,10 +558,10 @@ When user input matches any of these patterns, activate Daily Record workflow:
 
    **If file exists**:
    - Read the existing file
-   - Locate the appropriate category section (### 运动健身, ### 社交见面, etc.)
+   - Locate the appropriate category section (### Exercise & Fitness, ### Social Meetings, etc.)
    - Append new record row to the category table
-   - Update the summary counts in the 记录汇总 table
-   - Update the 最后更新 timestamp
+   - Update the summary counts in the Record Summary table
+   - Update the Last Updated timestamp
 
    **Use Bash heredoc for all file operations** to ensure single confirmation.
 
@@ -563,40 +569,40 @@ When user input matches any of these patterns, activate Daily Record workflow:
 
    After successful recording, confirm to user:
    ```
-   ✓ 记录已添加
+   ✓ Record added
 
-   日期: {YYYY-MM-DD}
-   分类: {category}
-   内容: {content}
-   {金额: {amount}元}  ← only for 消费支出
+   Date: {YYYY-MM-DD}
+   Category: {category}
+   Content: {content}
+   {Amount: {amount}}  ← only for Expenses
 
-   文件: {year}/{year}{month}/daily-records-{year}-{month}.md
+   File: {year}/{year}{month}/daily-records-{year}-{month}.md
    ```
 
 **Example Usage:**
 
 ```
-User: 记录:今天跑步5公里
+User: record:ran 5km today
 → Date: 2026-01-03
-→ Category: 运动健身
-→ Content: 今天跑步5公里
+→ Category: Exercise & Fitness
+→ Content: ran 5km today
 → File: 2026/202601/daily-records-2026-01.md
 
-User: 昨天:和小明聚餐
+User: yesterday:dinner with friends
 → Date: 2026-01-02
-→ Category: 社交见面
-→ Content: 和小明聚餐
+→ Category: Social Meetings
+→ Content: dinner with friends
 
-User: 记录:买了一本书花了50元
+User: record:bought a book, spent $20
 → Date: 2026-01-03
-→ Category: 消费支出
-→ Content: 买了一本书花了50元
-→ Amount: 50元
+→ Category: Expenses
+→ Content: bought a book, spent $20
+→ Amount: $20
 
-User: 1月1日:新年第一天,定了全年目标
+User: Jan 1:New Year's Day, set annual goals
 → Date: 2026-01-01
-→ Category: 自由记录
-→ Content: 新年第一天,定了全年目标
+→ Category: Free Records
+→ Content: New Year's Day, set annual goals
 ```
 
 **Integration with Monthly Review:**
@@ -609,17 +615,17 @@ During Monthly Review (Phase 10), the system should leverage daily records:
 
 2. **Present summary to user**
    ```
-   📊 本月每日记录摘要:
-   - 运动健身: {count} 次
-   - 社交见面: {count} 次
-   - 消费支出: {count} 笔, 总计 {amount} 元
-   - 自由记录: {count} 条
+   📊 Daily Records Summary for This Month:
+   - Exercise & Fitness: {count} entries
+   - Social Meetings: {count} entries
+   - Expenses: {count} entries, total {amount}
+   - Free Records: {count} entries
    ```
 
 3. **Use in review sections**
-   - **Section I (结果回顾)**: Cross-reference planned activities vs actual records
-   - **Section III (生命之轮快扫)**: Use exercise frequency for 健康, social count for 社交
-   - **Section IV (失败模式识别)**: Identify gaps between intentions and records
+   - **Section I (Result Review)**: Cross-reference planned activities vs actual records
+   - **Section III (Life Wheel Quick Scan)**: Use exercise frequency for Health, social count for Social dimensions
+   - **Section IV (Failure Pattern Recognition)**: Identify gaps between intentions and records
 
 ## Document Generation
 
@@ -717,70 +723,70 @@ This prevents file creation errors and ensures proper organization.
 {
   # Section 0: Header
   cat > 2026/annual-plan-2026.md << 'EOF' || exit 1
-# 2026 年度战略地图
+# 2026 Annual Strategic Map
 
-> 生成日期:2026-01-02
-> 年度主题词:突破
+> Generated: 2026-01-02
+> Annual Theme: Breakthrough
 
 ---
 EOF
 
   # Section 1: Reality Check
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 一、现实约束与角色确认
+## I. Reality Check & Role Confirmation
 
-### 当前主要人生角色
+### Current Life Roles
 - [role 1]
 - [role 2]
 
-### 最硬的现实约束
+### Hard Constraints
 [content here]
 EOF
 
   # Section 2: Life Wheel
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 二、生命之轮结构判断
+## II. Life Wheel Structural Assessment
 
 [content here]
 EOF
 
   # Section 3: Strategic Focus
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 三、年度战略定位
+## III. Annual Strategic Positioning
 
 [content here]
 EOF
 
   # Section 4: OKR
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 四、年度 OKR
+## IV. Annual OKRs
 
 [content here]
 EOF
 
   # Section 5: Action System
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 五、行动系统设计
+## V. Action System Design
 
 [content here]
 EOF
 
   # Section 6: Recovery Budget
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 六、恢复与输入配额
+## VI. Recovery & Input Budget
 
 [content here]
 EOF
 
   # Section 7: 12-Week Rhythm
   cat >> 2026/annual-plan-2026.md << 'EOF' || exit 1
-## 七、12周节奏规划
+## VII. 12-Week Rhythm Planning
 
 [content here]
 
 ---
 
-*本文档为年度战略参考，建议每季度复盘时回顾调整*
+*This document is an annual strategic reference. Review and adjust during quarterly reviews.*
 EOF
 
 } && echo "✓ Annual plan generated successfully at 2026/annual-plan-2026.md"
@@ -827,15 +833,15 @@ When filling templates, use these exact formats:
 | {date} | YYYY-MM-DD | 2026-01-02 | ISO 8601 format |
 | {next_plan_date} | YYYY-MM-DD | 2026-02-01 | ISO 8601 format |
 | {next_review_date} | YYYY-MM-DD | 2026-01-31 | ISO 8601 format |
-| {monthly_theme} | Chinese text | 聚焦与突破 | 2-4 Chinese characters |
-| {annual_theme} | Chinese text | 系统化成长 | 2-4 Chinese characters |
-| {quarterly_theme} | Chinese text | 打基础 | 2-4 Chinese characters |
-| {routine} | Chinese text | 晨间锻炼 | Routine activity name |
+| {monthly_theme} | Theme text | Focus & Breakthrough | 2-4 words |
+| {annual_theme} | Theme text | Systematic Growth | 2-4 words |
+| {quarterly_theme} | Theme text | Foundation Building | 2-4 words |
+| {routine} | Activity name | Morning Workout | Routine activity name |
 | {kr_ref} | KR reference | KR1 | Which KR this routine supports |
 | {time_slot} | HH:MM-HH:MM | 06:00-06:30 | Time range in 24h format |
 | {duration} | Duration | 30min / 1h | Activity duration |
-| {day_of_week} | Chinese weekday | 周一 | Monday to Sunday |
-| {day_of_month} | Date pattern | 每月1日 | Monthly date pattern |
+| {day_of_week} | Weekday name | Monday | Monday to Sunday |
+| {day_of_month} | Date pattern | 1st of month | Monthly date pattern |
 
 **Date Calculation Rules**:
 - Current date: Use system date in YYYY-MM-DD format
@@ -899,7 +905,7 @@ When user wants to:
 - **Create monthly plan**: Go directly to Phase 9 (Monthly Planning) - MUST use MONTHLY-PLAN-TEMPLATE.md
 - **Do monthly review**: Go directly to Phase 10 (Monthly Review) - MUST use MONTHLY-REVIEW-TEMPLATE.md
 - **Quick Life Wheel scan**: Execute Phase 1 only
-- **Add daily record**: Follow "Daily Record (每日记录)" workflow - parse input, classify, and append to monthly file
+- **Add daily record**: Follow "Daily Record" workflow - parse input, classify, and append to monthly file
 
 ## Initial Greeting
 
@@ -954,10 +960,15 @@ Note: The example above assumes today is 2025-12-31. You MUST replace 2025 and 2
 
 ## Output Language
 
-- **Default language**: English
-- **Language adaptation**: Match the user's input language
-  - If user communicates in Chinese (中文), respond in Chinese and generate documents in Chinese
-  - If user communicates in English, respond in English and generate documents in English
-  - The language is determined by the user's first input and maintained throughout the session
+- **Language detection**: Detect from user's first input
+- **Language adaptation**: Match the user's input language for ALL output
+  - Section headers: Translate dynamically based on user's language
+    - Example (Chinese): "一、现实约束与角色确认"
+    - Example (English): "I. Reality Check & Role Confirmation"
+    - Example (Japanese): "一、現実の制約と役割の確認"
+  - Document content: Generate in user's language
+  - UI messages: Respond in user's language
+- The language is determined by the user's first input and maintained throughout the session
 - Use structured markdown format for all outputs
 - Code and technical terms should remain in English regardless of communication language
+- Templates in this skill are written in English - translate section headers when generating documents

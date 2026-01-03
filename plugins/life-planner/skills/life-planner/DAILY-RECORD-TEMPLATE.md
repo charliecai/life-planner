@@ -17,74 +17,74 @@ Example: `2026/202601/daily-records-2026-01.md`
 ## Document Structure
 
 ```markdown
-# {Year}年{Month}月 每日记录
+# {Year}/{Month} Daily Records
 
-> 创建日期：{first_record_date}
-> 最后更新：{last_update_date}
-> 本月记录数：{total_count}
-
----
-
-## 记录汇总
-
-| 分类 | 记录数 | 说明 |
-|-----|-------|-----|
-| 运动健身 | {count} | 跑步、健身、游泳等 |
-| 社交见面 | {count} | 聚会、约会、见面等 |
-| 消费支出 | {count} | 购物、消费等 |
-| 自由记录 | {count} | 其他记录 |
+> Created: {first_record_date}
+> Last Updated: {last_update_date}
+> Total Records This Month: {total_count}
 
 ---
 
-## 详细记录
+## Record Summary
 
-### 运动健身
+| Category | Count | Description |
+|----------|-------|-------------|
+| Exercise & Fitness | {count} | Running, gym, swimming, etc. |
+| Social Meetings | {count} | Gatherings, dates, meetings, etc. |
+| Expenses | {count} | Shopping, purchases, etc. |
+| Free Records | {count} | Other records |
 
-| 日期 | 内容 | 备注 |
-|-----|-----|-----|
+---
+
+## Detailed Records
+
+### Exercise & Fitness
+
+| Date | Content | Notes |
+|------|---------|-------|
 | {date} | {content} | {note} |
 
-### 社交见面
+### Social Meetings
 
-| 日期 | 内容 | 备注 |
-|-----|-----|-----|
+| Date | Content | Notes |
+|------|---------|-------|
 | {date} | {content} | {note} |
 
-### 消费支出
+### Expenses
 
-| 日期 | 内容 | 金额 | 备注 |
-|-----|-----|-----|-----|
+| Date | Content | Amount | Notes |
+|------|---------|--------|-------|
 | {date} | {content} | {amount} | {note} |
 
-### 自由记录
+### Free Records
 
-| 日期 | 内容 | 备注 |
-|-----|-----|-----|
+| Date | Content | Notes |
+|------|---------|-------|
 | {date} | {content} | {note} |
 
 ---
 
-*本文件由每日记录功能自动维护*
+*This file is automatically maintained by the daily record feature*
 ```
 
 ## Category Keywords
 
 Use these keywords to automatically classify records:
 
-| 分类 | 关键词 |
-|-----|-------|
-| 运动健身 | 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧, gym, workout |
-| 社交见面 | 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊, meeting, party |
-| 消费支出 | 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销, spent, bought, paid |
-| 自由记录 | (默认，不匹配以上任何关键词时) |
+| Category | Keywords |
+|----------|----------|
+| Exercise & Fitness | run, running, gym, swim, swimming, workout, exercise, yoga, cycling, basketball, football, soccer, badminton, tennis, table tennis, hiking, climbing, walking, weightlifting, squat, push-up, sit-up, pilates, stretching, cardio, aerobic, 跑步, 健身, 游泳, 锻炼, 运动, 瑜伽, 骑行, 篮球, 足球, 羽毛球, 网球, 乒乓, 徒步, 爬山, 健走, 举重, 深蹲, 俯卧撑, 仰卧起坐, 普拉提, 拉伸, 有氧, 无氧 |
+| Social Meetings | meeting, date, party, gathering, dinner, hangout, reunion, visit, meetup, social, 见面, 约会, 聚会, 聚餐, 饭局, 派对, 聚一聚, 叙旧, 相亲, 会面, 拜访, 串门, 团建, 联谊 |
+| Expenses | bought, spent, paid, purchase, cost, payment, order, shopping, expense, 买了, 花了, 消费, 购买, 支出, 付款, 下单, 充值, 订购, 购物, 采购, 开销, 报销 |
+| Free Records | (default, when no other keywords match) |
 
 ## Amount Extraction Patterns
 
 For expense records, extract amounts using these patterns:
-- `花了100元` → 100元
-- `花费100` → 100元
-- `100元` / `100块` → 100元
-- `￥100` / `¥100` → 100元
+- `spent 100` / `$100` / `100 dollars` → $100
+- `花了100元` / `花费100` → ¥100
+- `100元` / `100块` → ¥100
+- `￥100` / `¥100` → ¥100
 
 ## Generation Guidelines
 

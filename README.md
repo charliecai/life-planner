@@ -75,32 +75,94 @@ Create a monthly plan for January
 
 ### Workflow
 
-```
-Phase 0: Reality Check & Role Confirmation
-    ↓
-Phase 1-2: Life Wheel Scan + Annual Review
-    ↓
-Phase 3-4: Strategic Focus + OKR Setting
-    ↓
-Phase 5-6: Action System + Recovery Budget
-    ↓
-Phase 7-8: Annual Battle Map + 12-Week Rhythm
-    ↓
-Phase 9: Monthly Planning ←──┐
-    ↓                        │
-Phase 10: Monthly Review ────┘
+```mermaid
+flowchart TD
+    %% Style definitions
+    classDef process fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef decision fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef storage fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef terminator fill:#e0e0e0,stroke:#333,stroke-width:2px;
+    classDef critical fill:#ffccbc,stroke:#d84315,stroke-width:2px,stroke-dasharray: 5 5;
+
+    %% =======================
+    %% Phase 1: Annual Plan Initialization
+    %% =======================
+    Start((Start: New Annual Plan)):::terminator
+    CheckLastYear{Check: Last Year<br>Review Exists?}:::decision
+    CreateLastReview[Action: Create Last<br>Year Review]:::process
+    GenAnnualPlan[System: Generate<br>Annual Plan]:::process
+
+    Start --> CheckLastYear
+    CheckLastYear -- No, proceed anyway --> GenAnnualPlan
+    CheckLastYear -- No, create review --> CreateLastReview --> GenAnnualPlan
+    CheckLastYear -- Yes --> GenAnnualPlan
+
+    %% =======================
+    %% Phase 2: Follow-up Actions
+    %% =======================
+    PlanReady((Annual Plan Complete)):::terminator
+    GenAnnualPlan --> PlanReady
+
+    UserChoice{User Next Action}:::decision
+    PlanReady --> UserChoice
+
+    %% Branch A: Split into monthly plan (core path)
+    ActionSplit[Action: Create First<br>Month Plan]:::critical
+
+    %% Branch B: Sync calendar (optional path)
+    ActionCalendar[Action: Sync Routines<br>to Calendar]:::process
+    CheckMonthExists_Cal{Check: Monthly<br>Plan Exists?}:::decision
+    PromptForMonth_Cal[Prompt: Suggest Creating<br>Monthly Plan]:::process
+
+    %% Connection logic
+    UserChoice -- Create Monthly --> ActionSplit
+    UserChoice -- Sync Calendar --> ActionCalendar
+
+    ActionCalendar --> CheckMonthExists_Cal
+    CheckMonthExists_Cal -- No --> PromptForMonth_Cal
+    PromptForMonth_Cal --> ActionSplit
+    CheckMonthExists_Cal -- Yes, done --> DoneCal((Calendar Sync Complete)):::terminator
+
+    %% =======================
+    %% Phase 3: Daily Records (with validation)
+    %% =======================
+    subgraph DailyLoop [Daily Record Loop]
+        direction TB
+        UserRecord[User: Add Daily Record]:::process
+        CheckMonthExists_Rec{Check: Current Month<br>Plan Exists?}:::decision
+        PromptForMonth_Rec[Prompt: Create Monthly<br>Plan First]:::process
+        SaveLog[(System: Save to<br>Record File)]:::storage
+    end
+
+    %% Record validation logic
+    UserRecord --> CheckMonthExists_Rec
+    CheckMonthExists_Rec -- Yes --> SaveLog
+    CheckMonthExists_Rec -- No --> PromptForMonth_Rec
+
+    %% Key connection: if no plan exists, redirect to create
+    PromptForMonth_Rec -.-> ActionSplit
+    ActionSplit -.->|After creation| SaveLog
+
+    %% =======================
+    %% Phase 4 & 5: Reviews
+    %% =======================
+    SaveLog -.-> MonthReview[Monthly Review]
+    MonthReview --> NextMonthPlan[Create Next Month Plan]
+    NextMonthPlan -.-> YearReview[Annual Review]
 ```
 
 ## Generated Documents
 
-The plugin helps you generate the following Markdown documents:
+The plugin helps you generate the following documents:
 
 | Document Type | Filename Format | Location |
 |--------------|-----------------|----------|
-| Annual Review | `annual-review-{year}.md` | `plans/{year}/` |
-| Annual Plan | `annual-plan-{year}.md` | `plans/{year}/` |
-| Monthly Review | `monthly-review-{year}-{month}.md` | `plans/{year}/` |
-| Monthly Plan | `monthly-plan-{year}-{month}.md` | `plans/{year}/` |
+| Annual Plan | `annual-plan-{year}.md` | `{year}/` |
+| Annual Review | `annual-review-{year}.md` | `{year}/` |
+| Calendar | `routines-{year}.ics` | `{year}/` |
+| Monthly Plan | `monthly-plan-{year}-{month}.md` | `{year}/{year}{month}/` |
+| Monthly Review | `monthly-review-{year}-{month}.md` | `{year}/{year}{month}/` |
+| Daily Records | `daily-records-{year}-{month}.md` | `{year}/{year}{month}/` |
 
 ## Project Structure
 

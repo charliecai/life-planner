@@ -31,201 +31,201 @@ The document should be generated in these sections:
 - Title, date, theme word
 
 ### Section 1: Reality Check (lines 11-40)
-- 一、现实约束与角色确认
+- I. Reality Check & Role Confirmation
 
 ### Section 2: Life Wheel (lines 41-70)
-- 二、生命之轮结构判断
+- II. Life Wheel Structural Assessment
 
 ### Section 3: Strategic Focus (lines 71-100)
-- 三、年度战略定位
+- III. Annual Strategic Positioning
 
 ### Section 4: OKR (lines 101-130)
-- 四、年度 OKR
+- IV. Annual OKRs
 
 ### Section 5: Action System & Routine (lines 131-200)
-- 五、行动系统设计
-- 五(附)、日常Routine时间表
-- 六、恢复与输入配额
+- V. Action System Design
+- V (Appendix). Daily Routine Schedule
+- VI. Recovery & Input Budget
 
 ### Section 6: 12-Week Rhythm & Calendar (lines 201-end)
-- 七、12周节奏规划
-- 附录：年度日历视图
+- VII. 12-Week Rhythm Planning
+- Appendix: Annual Calendar View
 
 ---
 
 ## Full Template Content
 
 ```markdown
-# {Year} 年度战略地图
+# {Year} Annual Strategic Map
 
-> 生成日期：{date}
-> 年度主题词：{theme_word}
+> Generated: {date}
+> Annual Theme: {theme_word}
 
 ---
 
-## 一、现实约束与角色确认
+## I. Reality Check & Role Confirmation
 
-### 当前主要人生角色
+### Current Life Roles
 - {role_1}
 - {role_2}
 - ...
 
-### 最硬的现实约束
-| 约束类型 | 具体描述 | 影响程度 |
-|---------|---------|---------|
-| {type} | {description} | 高/中/低 |
+### Hard Constraints
+| Constraint Type | Description | Impact Level |
+|----------------|-------------|--------------|
+| {type} | {description} | High/Medium/Low |
 
-### 年度减法清单（必须减少/停止的事项）
+### Annual Subtraction List (Things to reduce/stop)
 1. {item_1}
 2. {item_2}
 3. {item_3}
 
-> 今年的关键不是更努力，而是更少犯错。
+> This year's key is not working harder, but making fewer mistakes.
 
 ---
 
-## 二、生命之轮结构判断
+## II. Life Wheel Structural Assessment
 
-### 八维度评分（1-10分）
+### Eight Dimensions Scoring (1-10)
 
-| 维度 | 得分 | 状态标记 | 备注 |
-|-----|-----|---------|-----|
-| 健康 | {score} | {normal/危险短板/透支高分} | {note} |
-| 事业/学业 | {score} | | |
-| 财富/财务安全 | {score} | | |
-| 家庭 | {score} | | |
-| 亲密关系 | {score} | | |
-| 社交/朋友圈 | {score} | | |
-| 个人成长 | {score} | | |
-| 休闲/恢复 | {score} | | |
+| Dimension | Score | Status | Notes |
+|-----------|-------|--------|-------|
+| Health | {score} | {normal/danger zone/overdrawn} | {note} |
+| Career/Studies | {score} | | |
+| Wealth/Financial Security | {score} | | |
+| Family | {score} | | |
+| Intimate Relationships | {score} | | |
+| Social/Friends | {score} | | |
+| Personal Growth | {score} | | |
+| Leisure/Recovery | {score} | | |
 
-### 结构性风险判断
-- **危险短板**：{dimension} - {reason}
-- **透支高分项**：{dimension} - {reason}
-- **系统性风险**：{risk_description}
+### Structural Risk Assessment
+- **Danger Zone**: {dimension} - {reason}
+- **Overdrawn High Score**: {dimension} - {reason}
+- **Systemic Risk**: {risk_description}
 
 ---
 
-## 三、年度战略定位
+## III. Annual Strategic Positioning
 
-### 年度定位陈述
+### Annual Positioning Statement
 > {1-3 sentences positioning statement}
 
-### 战场划分
+### Battlefield Allocation
 
-| 类型 | 维度 | 策略说明 |
-|-----|-----|---------|
-| 主战场 | {dimension_1} | {strategy} |
-| 主战场 | {dimension_2} | {strategy} |
-| 60分策略 | {dimension} | {approach} |
-| 不优化 | {dimension} | {reason} |
+| Type | Dimension | Strategy |
+|------|-----------|----------|
+| Main Battlefield | {dimension_1} | {strategy} |
+| Main Battlefield | {dimension_2} | {strategy} |
+| 60-Point Strategy | {dimension} | {approach} |
+| Do Not Optimize | {dimension} | {reason} |
 
-### 年度成功判定（至少2条达成即视为成功）
-1. {criterion_1} - 验收证据：{evidence}
-2. {criterion_2} - 验收证据：{evidence}
-3. {criterion_3} - 验收证据：{evidence}
+### Annual Success Criteria (At least 2 achieved = Success)
+1. {criterion_1} - Verification: {evidence}
+2. {criterion_2} - Verification: {evidence}
+3. {criterion_3} - Verification: {evidence}
 
 ---
 
-## 四、年度 OKR（按主战场维度）
+## IV. Annual OKRs (By Main Battlefield)
 
-### 主战场 1：{dimension_name}
+### Main Battlefield 1: {dimension_name}
 
 **Objective**: {state_change_description}
 
-| Key Result | 验收证据 | 12周里程碑 |
-|-----------|---------|-----------|
+| Key Result | Verification | 12-Week Milestones |
+|------------|--------------|-------------------|
 | KR1: {measurable_result} | {evidence} | Q1: / Q2: / Q3: / Q4: |
 | KR2: {measurable_result} | {evidence} | Q1: / Q2: / Q3: / Q4: |
 | KR3: {measurable_result} | {evidence} | Q1: / Q2: / Q3: / Q4: |
 
-### 主战场 2：{dimension_name}
+### Main Battlefield 2: {dimension_name}
 
 **Objective**: {state_change_description}
 
-| Key Result | 验收证据 | 12周里程碑 |
-|-----------|---------|-----------|
+| Key Result | Verification | 12-Week Milestones |
+|------------|--------------|-------------------|
 | KR1: {measurable_result} | {evidence} | |
 | KR2: {measurable_result} | {evidence} | |
 
 ---
 
-## 五、行动系统设计
+## V. Action System Design
 
 ### KR: {kr_name}
 
-| 要素 | 内容 |
-|-----|-----|
-| **最小行动** | {5-20分钟可完成的低门槛动作} |
-| **环境/系统调整** | {让正确行为更容易发生的改造} |
-| **失败预演** | 风险1: {risk} → 兜底: {fallback} |
-| | 风险2: {risk} → 兜底: {fallback} |
+| Element | Content |
+|---------|---------|
+| **Minimum Action** | {5-20 minute low-barrier action} |
+| **Environment/System Adjustment** | {changes to make correct behavior easier} |
+| **Failure Pre-mortem** | Risk 1: {risk} → Fallback: {fallback} |
+| | Risk 2: {risk} → Fallback: {fallback} |
 
 (Repeat for each KR)
 
 ---
 
-## 五(附)、日常Routine时间表
+## V (Appendix). Daily Routine Schedule
 
-> 基于行动系统设计,提取可固定化的日常routine,便于日程管理和自动化
+> Based on action system design, extract routines that can be fixed for calendar management and automation
 
-### 每日Routine
+### Daily Routines
 
-| 时间段 | Routine名称 | 关联KR | 时长 | 备注 |
-|-------|-----------|-------|-----|-----|
+| Time Slot | Routine Name | Related KR | Duration | Notes |
+|-----------|--------------|------------|----------|-------|
 | 06:00-06:30 | {routine} | {kr_ref} | 30min | {note} |
 | 07:00-07:30 | {routine} | {kr_ref} | 30min | {note} |
 | ... | | | | |
 
-### 每周Routine
+### Weekly Routines
 
-| 星期 | 时间段 | Routine名称 | 关联KR | 时长 | 备注 |
-|-----|-------|-----------|-------|-----|-----|
-| 周一 | 19:00-20:00 | {routine} | {kr_ref} | 1h | {note} |
-| 周三 | 20:00-21:00 | {routine} | {kr_ref} | 1h | {note} |
+| Day | Time Slot | Routine Name | Related KR | Duration | Notes |
+|-----|-----------|--------------|------------|----------|-------|
+| Monday | 19:00-20:00 | {routine} | {kr_ref} | 1h | {note} |
+| Wednesday | 20:00-21:00 | {routine} | {kr_ref} | 1h | {note} |
 | ... | | | | | |
 
-### 每月Routine
+### Monthly Routines
 
-| 日期 | 时间段 | Routine名称 | 关联KR | 时长 | 备注 |
-|-----|-------|-----------|-------|-----|-----|
-| 每月1日 | 09:00-10:00 | {routine} | {kr_ref} | 1h | {note} |
-| 每月15日 | 14:00-15:00 | {routine} | {kr_ref} | 1h | {note} |
+| Date | Time Slot | Routine Name | Related KR | Duration | Notes |
+|------|-----------|--------------|------------|----------|-------|
+| 1st of month | 09:00-10:00 | {routine} | {kr_ref} | 1h | {note} |
+| 15th of month | 14:00-15:00 | {routine} | {kr_ref} | 1h | {note} |
 | ... | | | | | |
 
-### Routine设计原则
+### Routine Design Principles
 
-- **时间具体化**: 明确开始和结束时间,便于日历添加
-- **关联KR**: 每个routine都应对齐具体的Key Result
-- **时长合理**: 考虑实际可执行性,避免过度安排
-- **灵活性**: 标注哪些可调整,哪些必须固定
+- **Specific Timing**: Define clear start and end times for calendar integration
+- **KR Alignment**: Each routine should align with a specific Key Result
+- **Reasonable Duration**: Consider actual feasibility, avoid over-scheduling
+- **Flexibility**: Mark which routines are adjustable vs. fixed
 
 ---
 
-## 六、恢复与输入配额
+## VI. Recovery & Input Budget
 
-### 恢复活动池
-| 活动 | 补能效果 | 占位方式 |
-|-----|---------|---------|
+### Recovery Activity Pool
+| Activity | Energy Effect | Reservation Method |
+|----------|---------------|-------------------|
 | {activity} | {effect} | {reservation_method} |
 
-### 输入活动池
-| 方向 | 期望认知更新 | 占位方式 |
-|-----|-------------|---------|
+### Input Activity Pool
+| Direction | Expected Insights | Reservation Method |
+|-----------|-------------------|-------------------|
 | {direction} | {expected_insight} | {reservation_method} |
 
-### 防挤占策略
-- 最容易被挤掉的：{item}
-- 防挤占措施：{measure}
+### Anti-Squeeze Strategy
+- Most likely to be squeezed out: {item}
+- Anti-squeeze measures: {measure}
 
-> 不设置次数/频率 KPI，只要求"价值清晰 + 有意识预留"
+> No frequency KPIs required - only "clear value + conscious reservation"
 
 ---
 
-## 七、12周节奏规划
+## VII. 12-Week Rhythm Planning
 
-| 周期 | 主题词 | 对齐KR | 里程碑（可验收） | 主要风险与兜底 |
-|-----|-------|-------|----------------|---------------|
+| Period | Theme | Aligned KR | Milestone (Verifiable) | Key Risks & Fallbacks |
+|--------|-------|------------|------------------------|----------------------|
 | Q1 (W1-12) | {theme} | {kr} | {milestone} | {risk_fallback} |
 | Q2 (W13-24) | {theme} | {kr} | {milestone} | {risk_fallback} |
 | Q3 (W25-36) | {theme} | {kr} | {milestone} | {risk_fallback} |
@@ -233,18 +233,18 @@ The document should be generated in these sections:
 
 ---
 
-## 附录：年度日历视图
+## Appendix: Annual Calendar View
 
-| 月份 | 季度 | 重点KR | 关键节点 |
-|-----|-----|-------|---------|
-| 1月 | Q1 | | |
-| 2月 | Q1 | | |
+| Month | Quarter | Focus KR | Key Dates |
+|-------|---------|----------|-----------|
+| January | Q1 | | |
+| February | Q1 | | |
 | ... | | | |
-| 12月 | Q4 | | |
+| December | Q4 | | |
 
 ---
 
-*本文档为年度战略参考，建议每季度复盘时回顾调整*
+*This document is an annual strategic reference. Review and adjust during quarterly reviews.*
 ```
 
 ## Generation Guidelines
