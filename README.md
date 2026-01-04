@@ -28,28 +28,30 @@ A personal strategic planning and execution system based on the Life Wheel metho
 
 ## Usage
 
-Once installed, the plugin automatically triggers when you mention these keywords:
-
-| Scenario | Trigger Keywords |
-|----------|-----------------|
-| Annual Planning | "annual plan", "annual planning", "年度计划", "年度规划" |
-| Annual Review | "annual review", "year review", "年度复盘", "年度回顾" |
-| Monthly Planning | "monthly plan", "monthly planning", "月度计划", "月度规划" |
-| Monthly Review | "monthly review", "月度复盘", "月度回顾" |
-| Life Wheel | "life wheel", "life balance", "生命之轮", "人生规划" |
-
-### Example Conversations
+To start the Life Planner, use the slash command:
 
 ```
-I want to start my 2025 annual planning
+/life-planner
 ```
 
-```
-Help me do my December monthly review
-```
+This will launch the Life Strategy Advisor and present you with 6 planning options:
+
+1. **Annual Planning** - Create a comprehensive strategic plan for the year
+2. **Annual Review** - Review the past year's outcomes
+3. **Monthly Planning** - Create specific action plans for a month
+4. **Monthly Review** - Review execution for a specific month
+5. **Add Daily Record** - Quickly record daily activities
+6. **Life Wheel Quick Scan** - Quick assessment of balance across 8 dimensions
+
+### Example
 
 ```
-Create a monthly plan for January
+User: /life-planner
+Assistant: Hello! I'm your Life Strategy Advisor...
+           What type of planning would you like to do?
+           1. Annual Planning
+           2. Annual Review
+           ...
 ```
 
 ## Methodology Overview
